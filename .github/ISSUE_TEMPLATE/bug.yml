@@ -1,0 +1,76 @@
+name: Bug report
+description: Report a reproducible problem in the site, tests, or documentation.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Brief & Verify. Search existing issues first, and remove personal or confidential information from every field and attachment.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Where did the problem occur?
+      options:
+        - Learning flow or content
+        - Accessibility or keyboard use
+        - Responsive layout or visual design
+        - Progress import, export, or storage
+        - Curriculum studio
+        - Documentation or local setup
+        - Tests or build tooling
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened, in one or two clear sentences?
+      placeholder: The expected action did not complete after…
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Give the smallest repeatable sequence, including the route when relevant.
+      placeholder: |
+        1. Open…
+        2. Select…
+        3. Observe…
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Device, operating system, browser, and assistive technology if relevant.
+      placeholder: Firefox 142, Windows 11, keyboard only
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Additional evidence
+      description: Add minimal logs or screenshots. Redact private data first.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I searched existing issues for this problem.
+          required: true
+        - label: I removed personal, confidential, health, student, customer, case, and authentication data.
+          required: true
+        - label: I agree to follow the project Code of Conduct.
+          required: true

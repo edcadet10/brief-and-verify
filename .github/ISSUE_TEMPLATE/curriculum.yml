@@ -1,0 +1,79 @@
+name: Curriculum correction or proposal
+description: Improve a lesson, scenario, exercise, source, or audience adaptation.
+title: "[Curriculum]: "
+labels:
+  - curriculum
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Good curriculum proposals start with a learner and a decision, not a format. Please use original language and link primary or scholarly evidence for factual claims.
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Primary audience
+      options:
+        - General public
+        - Care or health-service teams
+        - Educators
+        - Small-business owners
+        - Public servants
+        - Community leaders
+        - Facilitators across audiences
+    validations:
+      required: true
+  - type: dropdown
+    id: content_type
+    attributes:
+      label: Material affected
+      options:
+        - Check-in
+        - Module or comprehension check
+        - Scenario or feedback
+        - Resource or printable guide
+        - Curriculum studio export
+        - Research source map
+        - New material
+    validations:
+      required: true
+  - type: textarea
+    id: learner_need
+    attributes:
+      label: Learner need
+      description: What real decision is difficult today, and for whom?
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Proposed change
+      description: Describe the smallest change that would improve learning.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and sources
+      description: Link primary or scholarly sources and state exactly what each supports. Write “not applicable” for a wording-only correction.
+    validations:
+      required: true
+  - type: textarea
+    id: learning_signal
+    attributes:
+      label: Observable learning signal
+      description: What could a learner do differently inside the experience if this worked?
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: The proposal teaches a durable, model-neutral principle rather than a product-specific trick.
+          required: true
+        - label: I will contribute original or compatibly licensed material and identify sources.
+          required: true
+        - label: The examples contain no real personal, health, student, customer, case, or confidential data.
+          required: true
+        - label: I agree to follow the project Code of Conduct.
+          required: true

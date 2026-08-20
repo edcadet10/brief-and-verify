@@ -1,0 +1,49 @@
+name: Feature request
+description: Propose a defined product, accessibility, or engineering improvement.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the problem before the solution. Large changes should begin as a Discussion so scope can be tested early.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Who is blocked or underserved, and in what situation?
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: What should become possible? Avoid prescribing implementation unless it is essential.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Possible approach
+      description: Share a scoped approach, alternatives, or a sketch if useful.
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Static-first, privacy, and accessibility considerations
+      description: Explain effects on offline usefulness, data, dependencies, keyboard use, screen readers, motion, or responsive layout.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I searched existing issues and Discussions for this request.
+          required: true
+        - label: The public experience can remain free and useful without an account or paid API.
+          required: true
+        - label: I agree to follow the project Code of Conduct.
+          required: true

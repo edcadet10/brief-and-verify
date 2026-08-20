@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions, teaching adaptations, and early ideas
+    url: https://github.com/edcadet10/brief-and-verify/discussions
+    about: Start a Discussion when the topic is not yet a defined bug or change.
+  - name: Private security or privacy report
+    url: https://github.com/edcadet10/brief-and-verify/security/advisories/new
+    about: Report a vulnerability privately and do not include sensitive data in a public issue.
