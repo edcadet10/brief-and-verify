@@ -40,6 +40,41 @@ describe('DeterministicPracticeProvider', () => {
     }
   })
 
+  it('counterbalances strongest choices instead of teaching a position pattern', () => {
+    const strongestPositionPatterns = scenarios.map((scenario) =>
+      scenario.stages.map((stage) =>
+        stage.choices.findIndex((choice) => choice.score === 2),
+      ),
+    )
+
+    for (const pattern of strongestPositionPatterns) {
+      expect([...pattern].sort()).toEqual([0, 1, 2])
+    }
+    expect(new Set(strongestPositionPatterns.map((pattern) => pattern.join(','))).size)
+      .toBe(scenarios.length)
+
+    for (let stageIndex = 0; stageIndex < 3; stageIndex += 1) {
+      const counts = [0, 0, 0]
+      for (const pattern of strongestPositionPatterns) counts[pattern[stageIndex]] += 1
+      expect(counts).toEqual([2, 2, 2])
+    }
+
+    const maximumScore = scenarios.reduce(
+      (total, scenario) => total + scenario.stages.length * 2,
+      0,
+    )
+    for (let fixedPosition = 0; fixedPosition < 3; fixedPosition += 1) {
+      const score = scenarios.reduce(
+        (total, scenario) => total + scenario.stages.reduce(
+          (scenarioTotal, stage) => scenarioTotal + stage.choices[fixedPosition].score,
+          0,
+        ),
+        0,
+      )
+      expect(Math.round((score / maximumScore) * 100)).toBeLessThan(80)
+    }
+  })
+
   it('returns the authored consequence even if a caller tampers with choice fields', () => {
     const scenario = scenarios[0]
     const turn = provider.start(scenario)

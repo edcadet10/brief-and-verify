@@ -71,6 +71,7 @@ New or revised learning material should:
 8. Use fictional, minimal examples with no real personal, health, student, customer, or confidential data.
 9. Use everyday words and direct verbs in learner-facing text. Explain a necessary specialist term the first time it appears.
 10. Keep sentences short enough to scan. As a practical check, consider splitting sentences longer than 25 words.
+11. Counterbalance strongest answer positions. A learner should not be able to score well by repeatedly choosing the same letter.
 
 When adding a source, describe exactly what it informed in `src/data/sources.ts`. A source can support a design choice without endorsing this project.
 

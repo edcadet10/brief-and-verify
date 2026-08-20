@@ -2,6 +2,13 @@
 
 Notable project changes are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and releases use [semantic versioning](https://semver.org/spec/v2.0.0.html) where practical.
 
+## [1.0.2] - 2026-08-20
+
+### Fixed
+
+- Counterbalanced the strongest answer positions across all six role scenarios.
+- Regression coverage that rejects repeated answer-position patterns and fixed-position scoring shortcuts.
+
 ## [1.0.1] - 2026-08-20
 
 ### Changed
@@ -23,5 +30,6 @@ Notable project changes are recorded here. The format follows [Keep a Changelog]
 - Static GitHub Pages deployment with no login, paid API, or runtime tracking dependency.
 - Public contribution guide, governance, support and conduct policies, structured issue forms, and pull request template.
 
+[1.0.2]: https://github.com/edcadet10/brief-and-verify/releases/tag/v1.0.2
 [1.0.1]: https://github.com/edcadet10/brief-and-verify/releases/tag/v1.0.1
 [1.0.0]: https://github.com/edcadet10/brief-and-verify/releases/tag/v1.0.0
