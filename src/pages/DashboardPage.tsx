@@ -48,7 +48,7 @@ export function DashboardPage() {
         <div className="dashboard-hero__copy">
           <div className="eyebrow">{rolePathTitle(state.role).toUpperCase()}</div>
           <h1>Practice the part no shortcut can do for you.</h1>
-          <p>Your next activity targets <strong>{competencyLabels[focus.competency].toLowerCase()}</strong>—the strongest opportunity in your current path.</p>
+          <p>Your next activity focuses on <strong>{competencyLabels[focus.competency].toLowerCase()}</strong>, the skill that needs the most practice right now.</p>
           <div className="dashboard-hero__actions">
             <Link className="button button--coral button--large" to={`/lesson/${focus.id}`}>
               {focusStatus === 'in-progress' ? 'Continue' : 'Start'} {focus.title}
@@ -77,7 +77,7 @@ export function DashboardPage() {
         </article>
         <article>
           <div className="metric-row__icon metric-row__icon--blue"><Gauge /></div>
-          <div><strong>{mastery}<small>/100</small></strong><span>Current comprehension</span></div>
+          <div><strong>{mastery}<small>/100</small></strong><span>Current understanding</span></div>
         </article>
         <article>
           <div className="metric-row__icon metric-row__icon--coral"><FlaskConical /></div>
@@ -85,22 +85,22 @@ export function DashboardPage() {
         </article>
         <article>
           <div className="metric-row__icon metric-row__icon--violet"><RotateCcw /></div>
-          <div><strong>{state.fieldExperiment?.reflection ? '1' : '0'}</strong><span>Field tests reflected</span></div>
+          <div><strong>{state.fieldExperiment?.reflection ? '1' : '0'}</strong><span>Workplace tests reviewed</span></div>
         </article>
       </section>
 
       <section className="dashboard-grid">
         <div className="skill-panel panel">
           <div className="panel-heading">
-            <div><span className="eyebrow">YOUR SKILL MAP</span><h2>What the evidence says today</h2></div>
-            <Link className="text-link" to="/impact">See impact <ArrowRight size={15} /></Link>
+            <div><span className="eyebrow">YOUR SKILL MAP</span><h2>What your practice shows today</h2></div>
+            <Link className="text-link" to="/impact">See progress <ArrowRight size={15} /></Link>
           </div>
           <div className="skill-panel__bars">
             {(Object.entries(state.mastery) as Array<[keyof typeof state.mastery, number]>).map(([skill, score], index) => (
               <ProgressBar key={skill} label={competencyLabels[skill]} value={score} tone={index === 2 ? 'coral' : index === 3 ? 'violet' : 'green'} />
             ))}
           </div>
-          <p className="fine-print">Scores combine your starting check with completed practice. They are learning indicators, not certification.</p>
+          <p className="fine-print">Scores combine your starting check with completed practice. They show progress here; they do not certify you.</p>
         </div>
 
         <div className="role-panel panel" style={{ '--role-color': role.color } as React.CSSProperties}>

@@ -2,6 +2,14 @@
 
 Notable project changes are recorded here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and releases use [semantic versioning](https://semver.org/spec/v2.0.0.html) where practical.
 
+## [1.0.1] - 2026-08-20
+
+### Changed
+
+- Rewrote learner-facing lessons, scenarios, progress labels, and navigation in clearer everyday language.
+- Added a plain-language standard for future curriculum contributions.
+- Updated project descriptions and the interface preview to match the clearer wording.
+
 ## [1.0.0] - 2026-08-20
 
 ### Added
@@ -15,4 +23,5 @@ Notable project changes are recorded here. The format follows [Keep a Changelog]
 - Static GitHub Pages deployment with no login, paid API, or runtime tracking dependency.
 - Public contribution guide, governance, support and conduct policies, structured issue forms, and pull request template.
 
+[1.0.1]: https://github.com/edcadet10/brief-and-verify/releases/tag/v1.0.1
 [1.0.0]: https://github.com/edcadet10/brief-and-verify/releases/tag/v1.0.0

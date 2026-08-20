@@ -5,7 +5,6 @@ import { useLearner } from '../context/LearnerContext'
 import { getRole, roles } from '../data/roles'
 import { getScenarioForRole, scenarios } from '../data/scenarios'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
-import { practiceProvider } from '../lib/providers/deterministicProvider'
 
 export function PracticePage() {
   const { state } = useLearner()
@@ -20,11 +19,11 @@ export function PracticePage() {
         <div>
           <div className="eyebrow"><FlaskConical size={16} /> PRACTICE LAB</div>
           <h1>Make the call before you see the lesson.</h1>
-          <p>Three-stage scenarios test whether you can brief, verify, and decide when the context gets messy.</p>
+          <p>Each practice case gives you three choices: explain the job, check the result, and make the final call.</p>
         </div>
         <div className="engine-note">
           <LockKeyhole size={19} />
-          <div><strong>{practiceProvider.label}</strong><span>No prompt leaves your browser. Every branch is inspectable.</span></div>
+          <div><strong>Written practice feedback</strong><span>Nothing you enter leaves your browser. The same choice always gets the same feedback.</span></div>
         </div>
       </section>
 
@@ -77,9 +76,9 @@ export function PracticePage() {
       </section>
 
       <section className="practice-principles">
-        <div><strong>No generated grading</strong><span>Your choice follows a published scoring branch.</span></div>
-        <div><strong>Feedback before points</strong><span>Every option explains the principle it reveals.</span></div>
-        <div><strong>Retry without penalty</strong><span>Practice is for correction, not performance theater.</span></div>
+        <div><strong>No automatic grading</strong><span>Each choice uses a score and explanation written in advance.</span></div>
+        <div><strong>Feedback before points</strong><span>Every option explains why it helps or where it falls short.</span></div>
+        <div><strong>Retry without penalty</strong><span>Practice is a place to learn and try again.</span></div>
       </section>
     </div>
   )

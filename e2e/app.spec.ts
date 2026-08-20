@@ -18,6 +18,29 @@ const criticalRoutes = [
   '#/about',
 ]
 
+const plainLanguageRoutes = criticalRoutes
+
+const specialistTerms = [
+  'adapter',
+  'analytics',
+  'API',
+  'artifact',
+  'calibration',
+  'comprehension',
+  'consequential',
+  'deterministic',
+  'inference',
+  'JSON',
+  'Markdown',
+  'model-neutral',
+  'provider',
+  'runtime',
+  'schema',
+  'simulation',
+  'static',
+  'WCAG',
+]
+
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => window.localStorage.clear())
 })
@@ -125,5 +148,35 @@ test('critical screens pass a real-browser axe audit', async ({ page }) => {
     })
 
     expect(violations, `axe violations at ${route || 'landing'}`).toEqual([])
+  }
+})
+
+test('core learner screens meet the plain-language guardrails', async ({ page }) => {
+  for (const route of plainLanguageRoutes) {
+    await page.goto(`./${route}`)
+    const results = await page.locator('main').evaluate((main, terms) => {
+      const blocks = [...main.querySelectorAll('h1, h2, h3, p, li, dd, dt, label, button, small, blockquote')]
+        .filter((element) => element.checkVisibility())
+        .map((element) => (element.textContent ?? '').replace(/\s+/g, ' ').trim())
+        .filter(Boolean)
+      const longSentences = blocks.flatMap((block) =>
+        (block.match(/[^.!?]+[.!?]+|[^.!?]+$/g) ?? [])
+          .map((sentence) => ({
+            text: sentence.trim(),
+            words: sentence.match(/[\p{L}\p{N}][\p{L}\p{N}’'&/-]*/gu)?.length ?? 0,
+          }))
+          .filter((sentence) => sentence.words > 25),
+      )
+      const pageText = (main.textContent ?? '').replace(/\s+/g, ' ').trim()
+      const unexplainedTerms = terms.filter((term) => {
+        if (!new RegExp(`\\b${term.replace('-', '\\-')}\\b`, 'i').test(pageText)) return false
+        return !(term === 'WCAG' && /Web Content Accessibility Guidelines\s*\(WCAG\)/i.test(pageText))
+      })
+
+      return { longSentences, unexplainedTerms }
+    }, specialistTerms)
+
+    expect(results.longSentences, `long sentences at ${route || 'landing'}`).toEqual([])
+    expect(results.unexplainedTerms, `unexplained terms at ${route || 'landing'}`).toEqual([])
   }
 })

@@ -176,7 +176,7 @@ export function CheckInPage() {
               {selectedOption && (
                 <fieldset className="confidence-check">
                   <legend>How confident are you?</legend>
-                  <p>Confidence helps measure calibration, not just correctness.</p>
+                  <p>This helps compare how sure you feel with how well the answer holds up.</p>
                   <div>
                     {([
                       [1, 'Unsure'], [2, 'Fairly sure'], [3, 'Very sure'],
@@ -215,8 +215,8 @@ export function CheckInPage() {
             </div>
 
             <div className="results-note">
-              <strong>This is a routing signal, not a certification.</strong>
-              <span>Six decisions are enough to choose a starting point—not to make a broad claim about ability.</span>
+              <strong>This chooses a starting point. It does not certify you.</strong>
+              <span>Six decisions can suggest what to practice first. They cannot measure your overall ability.</span>
             </div>
 
             <div className="checkin-actions">

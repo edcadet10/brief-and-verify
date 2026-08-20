@@ -4,10 +4,10 @@
 
 <h1 align="center">Brief &amp; Verify</h1>
 
-<p align="center"><strong>Free, model-neutral practice for practical AI judgment.</strong></p>
+<p align="center"><strong>Free practice for making better decisions with AI.</strong></p>
 
 <p align="center">
-  Learn to frame a useful job, verify consequential output, protect people and information,<br>
+  Learn to explain a useful job, check important results, protect people and information,<br>
   and keep the final decision where it belongs: with a person.
 </p>
 
@@ -25,7 +25,7 @@
 
 ![Brief & Verify landing page showing a practical claim-verification exercise](docs/preview.png)
 
-Brief & Verify is an openly licensed learning project for everyday users, care and health-service teams, educators, small-business owners, public servants, and community leaders. It is a reusable teaching kit—not a product tutorial or a certification.
+Brief & Verify is an openly licensed learning project for everyday users, care and health-service teams, educators, small-business owners, public servants, and community leaders. It works with any AI system. It is a reusable teaching kit, not a product tutorial or a certification.
 
 | Explore the project | Build with the project |
 | --- | --- |
@@ -36,10 +36,10 @@ Brief & Verify is an openly licensed learning project for everyday users, care a
 
 ## Try it in 60 seconds
 
-1. Open the [live learning experience](https://edcadet10.github.io/brief-and-verify/). No account or API key is required.
+1. Open the [live learning experience](https://edcadet10.github.io/brief-and-verify/). No account or paid service setup is required.
 2. Select **Start free** (or **Continue** on a returning browser), choose a work context and experience level, then complete the six-decision check-in.
-3. Open the suggested path and try a role-shaped scenario. Every response and consequence is authored, repeatable, and inspectable in this repository.
-4. Visit **Impact** to see the evidence collected in the exercises or to export, import, and reset your browser-only progress.
+3. Open the suggested path and try a scenario for your kind of work. Every response and result is written in advance, so you can review it in this repository.
+4. Visit **Progress** to review your exercise results or to save, restore, and reset the progress kept in your browser.
 
 For a quick tour of every route, start with [the project method](https://edcadet10.github.io/brief-and-verify/#/about).
 
@@ -48,14 +48,14 @@ For a quick tour of every route, start with [the project method](https://edcadet
 | Part | What a learner can do |
 | --- | --- |
 | Six-question check-in | Find a useful starting point without being labeled or certified |
-| Six learning modules | Practice capabilities, task choice, briefing, verification, privacy, and accountable decisions |
-| Six role-specific scenarios | Make three consequential choices and see immediate authored feedback |
+| Six learning modules | Practice AI basics, task choice, clear instructions, fact-checking, privacy, and responsible decisions |
+| Six role-specific scenarios | Make three important choices and see immediate written feedback |
 | Resource library | Search lessons, exercises, scenarios, and printable one-pagers |
-| Curriculum studio | Remix typed source material and export Markdown or JSON facilitator kits |
-| Impact view | Separate comprehension, simulated judgment, confidence, and a seven-day field test |
-| Local data controls | Export, import, or reset progress without creating an account |
+| Lesson kit builder | Choose and combine lessons, then save a teaching guide or data file |
+| Progress view | Keep understanding, practice choices, confidence, and a seven-day workplace test separate |
+| Local data controls | Save, restore, or reset progress without creating an account |
 
-The built-in curriculum stays deterministic: the same input produces the same authored result. Provider, storage, and analytics contracts leave room for future consent-aware integrations without making a network service necessary for the public experience.
+The built-in lessons are repeatable: the same choice produces the same written feedback. The app can support other services later, but the public experience does not need one.
 
 ## Why static-first
 
@@ -72,10 +72,10 @@ That makes the experience free to use, easy to inspect, and able to finish an al
 
 The project keeps four evidence levels separate:
 
-1. **Comprehension** in a short module check.
-2. **Judgment** in an authored simulation.
-3. **Self-reported transfer** in a seven-day field test.
-4. **Durable behavior**, which this application does not claim to measure.
+1. **Understanding** in a short lesson check.
+2. **Choices in practice** in a written scenario.
+3. **Your own report of workplace use** in a seven-day field test.
+4. **Long-term behavior change**, which this application does not claim to measure.
 
 Completion is recorded as progress, not presented as competence. See the [architecture note](docs/ARCHITECTURE.md#measurement-boundary) for the measurement boundary and the [research source map](src/data/sources.ts) for how each reference informed the curriculum.
 
@@ -99,7 +99,7 @@ Vite prints the local URL. Production builds use the `/brief-and-verify/` base p
 | `npm run dev` | Start the local development server |
 | `npm run check` | Run linting, deterministic unit/component tests, TypeScript compilation, and a production build |
 | `npm run test:e2e:install` | Install the Playwright-managed Chromium browser once |
-| `npm run test:e2e` | Test the full learner journey, authored scenario, mobile layout, landmarks, and real-browser Axe results across 12 critical routes |
+| `npm run test:e2e` | Test the learner journey, authored scenario, mobile layout, landmarks, accessibility, and plain-language guardrails |
 | `npm run preview` | Preview the production build locally |
 
 Selected component tests include detectable accessibility rules in a simulated DOM. The end-to-end suite runs the broader accessibility audit—including color contrast—in a real browser.
@@ -160,7 +160,7 @@ A helpful first contribution is small enough to review in one sitting: clarify o
 
 The interface uses semantic controls, skip links, visible focus states, reduced-motion support, responsive layouts, and automated checks for detectable WCAG issues. Please report gaps; automated results are only one part of accessibility work.
 
-Learning state stays in browser storage. Clearing site data removes it, and the **Impact** page provides explicit export, import, and reset controls. Static hosting infrastructure may retain standard request logs; the application itself adds no cookies or tracking.
+Learning progress stays in your browser. Clearing site data removes it, and the **Progress** page lets you save, restore, or reset it. The web host may keep standard visit records; the app itself adds no cookies or tracking.
 
 Do not enter real personal, health, student, customer, case, or confidential information into examples or reports. Report a vulnerability privately using the instructions in [SECURITY.md](SECURITY.md).
 

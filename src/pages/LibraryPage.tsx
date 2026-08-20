@@ -34,7 +34,7 @@ export function LibraryPage() {
   return (
     <div className="page library-page">
       <section className="page-hero page-hero--library">
-        <div><div className="eyebrow"><Library size={16} /> OPEN RESOURCE LIBRARY</div><h1>Take a piece. Make it fit.</h1><p>Short labs, exercises, one-pagers, and scenarios—built as reusable modules rather than one locked course.</p></div>
+        <div><div className="eyebrow"><Library size={16} /> FREE LEARNING LIBRARY</div><h1>Take a piece. Make it fit.</h1><p>Choose a short lesson, exercise, one-page guide, or practice case. Use only what helps.</p></div>
         <div className="library-count"><strong>{resources.length}</strong><span>open resources</span><small>Code: MIT · Curriculum: CC BY 4.0</small></div>
       </section>
 

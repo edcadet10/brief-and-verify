@@ -90,7 +90,7 @@ export function ScenarioPage() {
               <div className="scenario-detail">{turn.stage.detail}</div>
               <h2>{turn.stage.prompt}</h2>
               {turn.stage.artifact && (
-                <div className="scenario-artifact"><span>WORKING ARTIFACT</span><p>{turn.stage.artifact}</p></div>
+                <div className="scenario-artifact"><span>DRAFT TO REVIEW</span><p>{turn.stage.artifact}</p></div>
               )}
             </div>
 
@@ -114,7 +114,7 @@ export function ScenarioPage() {
             )}
 
             <div className="scenario-stage-card__footer">
-              <span><ShieldCheck size={16} /> Deterministic branch · no data sent</span>
+              <span><ShieldCheck size={16} /> Same choice, same feedback · nothing sent</span>
               {!feedback ? (
                 <button className="button button--ink" type="button" disabled={!selected} onClick={submitChoice}>See the consequence <ArrowRight size={17} /></button>
               ) : (

@@ -53,7 +53,7 @@ npm run check
 npm run test:e2e
 ```
 
-`npm run check` covers linting, unit/component tests, TypeScript compilation, and the production build. The browser suite covers the core journey, deterministic scenario behavior, responsive routes, landmarks, and real-browser Axe results.
+`npm run check` covers linting, unit/component tests, TypeScript compilation, and the production build. The browser suite covers the core journey, repeatable scenario behavior, responsive routes, landmarks, accessibility, and plain-language guardrails.
 
 Add the smallest test that would fail without your change. For a visual change, check a narrow mobile viewport and a desktop viewport, keyboard navigation, visible focus, reduced motion, and zoom. Automated accessibility tests do not replace manual or assistive-technology review.
 
@@ -69,8 +69,12 @@ New or revised learning material should:
 6. Cite a primary or scholarly source when a factual claim or framework materially depends on it.
 7. Use original language; do not paste restricted course, article, or product copy.
 8. Use fictional, minimal examples with no real personal, health, student, customer, or confidential data.
+9. Use everyday words and direct verbs in learner-facing text. Explain a necessary specialist term the first time it appears.
+10. Keep sentences short enough to scan. As a practical check, consider splitting sentences longer than 25 words.
 
 When adding a source, describe exactly what it informed in `src/data/sources.ts`. A source can support a design choice without endorsing this project.
+
+The plain-language standard follows [GOV.UK clear-language guidance](https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/) and the [CDC Clear Communication Index](https://www.cdc.gov/ccindex/pdf/full-index-score-sheet.pdf). Exact source titles, licence names, and code terms may stay technical where accuracy requires it.
 
 ## Where things live
 

@@ -1,7 +1,7 @@
 {
   "name": "Brief & Verify",
   "short_name": "B&V",
-  "description": "Free, model-neutral practice for practical AI judgment.",
+  "description": "Free practice for making better decisions with any AI system.",
   "start_url": "/brief-and-verify/#/",
   "scope": "/brief-and-verify/",
   "display": "standalone",

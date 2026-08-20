@@ -20,7 +20,7 @@ import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 export function LandingPage() {
   const { state } = useLearner()
-  useDocumentTitle('Practical AI judgment')
+  useDocumentTitle('Better decisions with AI')
   const primaryLink = state.onboarded ? '/home' : '/check-in'
   const primaryLabel = state.onboarded ? 'Continue your path' : 'Take the 3-minute check-in'
 
@@ -67,7 +67,7 @@ export function LandingPage() {
             </div>
             <ul className="trust-list" aria-label="Product promises">
               <li><Check size={16} aria-hidden="true" /> No account</li>
-              <li><Check size={16} aria-hidden="true" /> No paid model</li>
+              <li><Check size={16} aria-hidden="true" /> No paid service</li>
               <li><Check size={16} aria-hidden="true" /> Progress stays on your device</li>
             </ul>
           </div>
@@ -84,13 +84,13 @@ export function LandingPage() {
                   <Eye size={17} aria-hidden="true" />
                   VERIFY
                 </div>
-                <p className="practice-prompt">A polished draft makes a precise claim with no source. What do you inspect first?</p>
+                <p className="practice-prompt">A polished draft makes an exact claim with no source. What do you check first?</p>
                 <div className="artifact-card">
                   <div className="artifact-card__label">DRAFT EXCERPT</div>
-                  <p>“Most participants saved 6 hours every week after adopting the workflow.”</p>
+                  <p>“Most people saved 6 hours every week after using the new process.”</p>
                   <div className="artifact-flags">
                     <span><CircleAlert size={14} /> Source?</span>
-                    <span><CircleAlert size={14} /> Sample?</span>
+                    <span><CircleAlert size={14} /> Who took part?</span>
                     <span><CircleAlert size={14} /> Compared with what?</span>
                   </div>
                 </div>
@@ -100,27 +100,27 @@ export function LandingPage() {
                 </div>
                 <div className="choice-preview choice-preview--selected">
                   <span className="choice-letter">B</span>
-                  Trace the claim to current, independent evidence
+                  Check the claim against a current, separate source
                   <Check size={17} aria-hidden="true" />
                 </div>
                 <div className="micro-feedback">
                   <ShieldCheck size={20} aria-hidden="true" />
-                  <p><strong>Good call.</strong> Verification happens outside the generation loop.</p>
+                  <p><strong>Good call.</strong> Check important claims against a separate, trusted source.</p>
                 </div>
               </div>
             </div>
-            <div className="floating-note floating-note--one" aria-hidden="true">Evidence &gt; eloquence</div>
+            <div className="floating-note floating-note--one" aria-hidden="true">Proof matters more than polish</div>
             <div className="floating-note floating-note--two" aria-hidden="true">Human owns the call</div>
           </div>
           </section>
         </div>
 
         <section className="signal-strip" aria-label="Learning approach">
-          <p>Built around durable skills</p>
+          <p>Skills that keep working</p>
           <span />
-          <p>Grounded in public frameworks</p>
+          <p>Built from public guidance</p>
           <span />
-          <p>Designed for transfer, not completion</p>
+          <p>Made for real use, not just completion</p>
         </section>
 
         <section id="method" className="landing-section method-section">
@@ -134,22 +134,22 @@ export function LandingPage() {
               <div className="method-card__number">01</div>
               <Layers3 aria-hidden="true" />
               <h3>Brief</h3>
-              <p>Define the job, context, evidence, boundaries, and finish line.</p>
+              <p>Define the job, background, sources, limits, and finish line.</p>
               <span>Good inputs start with clear thinking.</span>
             </article>
             <article className="method-card method-card--coral">
               <div className="method-card__number">02</div>
               <BookOpenCheck aria-hidden="true" />
               <h3>Verify</h3>
-              <p>Trace claims, test assumptions, notice omissions, and scale review to risk.</p>
-              <span>Fluency is not evidence.</span>
+              <p>Check claims and assumptions, notice what is missing, and use stronger checks when an error could cause more harm.</p>
+              <span>A smooth answer is not proof.</span>
             </article>
             <article className="method-card method-card--violet">
               <div className="method-card__number">03</div>
               <Gauge aria-hidden="true" />
               <h3>Decide</h3>
-              <p>Keep authority human, record the review, and plan for correction.</p>
-              <span>Assistance does not transfer accountability.</span>
+              <p>Keep decisions with people, record the checks, and plan how to correct errors.</p>
+              <span>You still own the decision.</span>
             </article>
           </div>
         </section>
@@ -157,8 +157,8 @@ export function LandingPage() {
         <section id="audiences" className="landing-section audience-section">
           <div className="audience-section__intro">
             <div className="section-kicker">THE SAME SKILLS, IN YOUR WORLD</div>
-            <h2>Context changes the stakes.</h2>
-            <p>A single common core adapts its examples, scenarios, and safeguards to the work in front of you.</p>
+            <h2>The situation changes what could go wrong.</h2>
+            <p>The same core lessons use examples, practice cases, and safety checks that fit your work.</p>
           </div>
           <div className="audience-grid">
             {roles.map((role) => (
@@ -177,12 +177,12 @@ export function LandingPage() {
             <div>
               <div className="section-kicker section-kicker--light">MEASURE THE RIGHT THING</div>
               <h2>Completion is a click. Judgment shows up in choices.</h2>
-              <p>Track comprehension, scenario decisions, confidence calibration, and a seven-day field test—without pretending practice data proves workplace behavior.</p>
+              <p>Track what you understood, the choices you made in practice, how well your confidence matched your results, and one seven-day test at work.</p>
             </div>
             <div className="evidence-metrics" aria-label="Example learning indicators">
-              <div><span>84</span><small>Practice judgment</small></div>
-              <div><span>+22</span><small>Comprehension change</small></div>
-              <div><span>Good</span><small>Confidence calibration</small></div>
+              <div><span>84</span><small>Practice choices</small></div>
+              <div><span>+22</span><small>Understanding change</small></div>
+              <div><span>Good</span><small>Confidence matched results</small></div>
               <p>Illustrative preview—not learner data.</p>
             </div>
           </div>
@@ -193,7 +193,7 @@ export function LandingPage() {
           <div>
             <div className="section-kicker">FREE · PRIVATE BY DEFAULT · OPENLY LICENSED</div>
             <h2>Start with one honest check.</h2>
-            <p>No login, no API key, and no product pitch. Your first path starts from what you can already do.</p>
+            <p>No login, no paid service setup, and no product pitch. Your first path starts from what you can already do.</p>
           </div>
           <Link className="button button--ink button--large" to={primaryLink}>
             {primaryLabel}
@@ -204,7 +204,7 @@ export function LandingPage() {
 
       <footer className="landing-footer">
         <Brand light />
-        <p>Free practice for practical AI judgment.</p>
+        <p>Free practice for making better decisions with AI.</p>
         <div>
           <Link to="/about">Method &amp; sources</Link>
           <a href="https://github.com/edcadet10/brief-and-verify" target="_blank" rel="noreferrer">GitHub</a>

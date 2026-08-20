@@ -28,7 +28,7 @@ const priorityByRole: Record<RoleId, CompetencyId[]> = {
 const formats: Array<{ id: StudioDraft['format']; label: string; description: string }> = [
   { id: 'self-paced', label: 'Self-paced', description: 'Individual reading and practice' },
   { id: 'team-session', label: 'Team session', description: 'Facilitated discussion and scenario' },
-  { id: 'workshop', label: 'Workshop', description: 'Hands-on artifact and reflection' },
+  { id: 'workshop', label: 'Workshop', description: 'Make something, then reflect' },
 ]
 
 const suggestModules = (role: RoleId, budget: StudioDraft['minutes']) => {
@@ -56,7 +56,7 @@ const saveBlob = (filename: string, value: string, type: string) => {
 
 export function StudioPage() {
   const { state, updateStudioDraft, recordKitExport } = useLearner()
-  useDocumentTitle('Curriculum studio')
+  useDocumentTitle('Build a lesson')
   const draft = state.studioDraft
   const [copied, setCopied] = useState(false)
   const selectedModules = useMemo(() => modules.filter((module) => draft.moduleIds.includes(module.id)), [draft.moduleIds])
@@ -75,7 +75,7 @@ export function StudioPage() {
     })
   }
 
-  const facilitatorGuide = `# ${draft.title}\n\n**Audience:** ${role.label}\n**Format:** ${formats.find((item) => item.id === draft.format)?.label}\n**Estimated time:** ${totalMinutes} minutes\n\n## Learning goal\n\n${draft.goal}\n\n## Run of show\n\n${selectedModules.map((module, index) => `${index + 1}. **${module.title}** (${module.minutes} min)\n   - Outcome: ${module.outcome}\n   - Mental model: ${module.mentalModel}\n   - Context prompt: ${module.roleExamples[draft.role]?.situation ?? module.roleExamples.general?.situation}`).join('\n\n')}\n\n## Facilitation notes\n\n- Ask learners to make a choice before revealing feedback.\n- Invite counterexamples and local constraints.\n- Separate practice performance from claims about workplace behavior.\n- End with one bounded seven-day field test.\n\n## License\n\nAdapted from Brief & Verify curriculum, licensed CC BY 4.0.\n`
+  const facilitatorGuide = `# ${draft.title}\n\n**Audience:** ${role.label}\n**Format:** ${formats.find((item) => item.id === draft.format)?.label}\n**Estimated time:** ${totalMinutes} minutes\n\n## Learning goal\n\n${draft.goal}\n\n## Session plan\n\n${selectedModules.map((module, index) => `${index + 1}. **${module.title}** (${module.minutes} min)\n   - Goal: ${module.outcome}\n   - Key idea: ${module.mentalModel}\n   - Discussion prompt: ${module.roleExamples[draft.role]?.situation ?? module.roleExamples.general?.situation}`).join('\n\n')}\n\n## Teaching notes\n\n- Ask learners to choose before you show the feedback.\n- Ask when the idea might fail and what is different in this group’s setting.\n- Do not treat practice scores as proof of workplace skill.\n- End with one small, low-risk test to try over seven days.\n\n## License\n\nAdapted from Brief & Verify curriculum, licensed CC BY 4.0.\n`
 
   const exportMarkdown = () => {
     recordKitExport(selectedModules.length)
@@ -100,28 +100,28 @@ export function StudioPage() {
   return (
     <div className="page studio-page">
       <section className="page-hero page-hero--studio">
-        <div><div className="eyebrow"><Layers3 size={16} /> CURRICULUM REMIX STUDIO</div><h1>Build for the room you actually have.</h1><p>Reassemble the open core by audience, time, and format. The studio uses rules you can inspect—no generated filler.</p></div>
-        <div className="studio-hero-note"><Sparkles size={20} /><div><strong>One source, many paths</strong><span>Edit the inputs. Preview the run of show. Export an adaptable kit.</span></div></div>
+        <div><div className="eyebrow"><Layers3 size={16} /> LESSON KIT BUILDER</div><h1>Build for the group and time you have.</h1><p>Choose an audience, time, and format. The builder only uses lessons written in this project.</p></div>
+        <div className="studio-hero-note"><Sparkles size={20} /><div><strong>One library, many paths</strong><span>Choose the details. Preview the session. Save a kit you can adapt.</span></div></div>
       </section>
 
       <div className="studio-layout">
         <aside className="studio-controls" aria-label="Curriculum controls">
-          <div className="studio-controls__heading"><span>BUILD SETTINGS</span><button type="button" onClick={() => updateStudioDraft({ title: 'Practical AI judgment starter', goal: 'Help learners make one safer, more useful decision with AI this week.', role: 'general', minutes: 30, format: 'self-paced', moduleIds: suggestModules('general', 30) })}><RotateCcw size={15} /> Reset</button></div>
+          <div className="studio-controls__heading"><span>BUILD SETTINGS</span><button type="button" onClick={() => updateStudioDraft({ title: 'Better AI decisions starter', goal: 'Help learners make one safer, more useful decision with AI this week.', role: 'general', minutes: 30, format: 'self-paced', moduleIds: suggestModules('general', 30) })}><RotateCcw size={15} /> Reset</button></div>
 
           <label className="studio-field"><span>Kit title</span><input value={draft.title} onChange={(event) => patchDraft({ title: event.target.value })} /></label>
           <label className="studio-field"><span>Learning goal</span><textarea rows={3} value={draft.goal} onChange={(event) => patchDraft({ goal: event.target.value })} /></label>
 
-          <fieldset className="studio-fieldset"><legend>Audience lens</legend><div className="studio-role-grid">{roles.map((item) => <label className={draft.role === item.id ? 'selected' : ''} key={item.id}><input type="radio" name="studio-role" checked={draft.role === item.id} onChange={() => patchDraft({ role: item.id, moduleIds: suggestModules(item.id, draft.minutes) })} /><span style={{ background: item.color }}><RoleIcon role={item.id} size={17} /></span>{item.shortLabel}</label>)}</div></fieldset>
+          <fieldset className="studio-fieldset"><legend>Audience</legend><div className="studio-role-grid">{roles.map((item) => <label className={draft.role === item.id ? 'selected' : ''} key={item.id}><input type="radio" name="studio-role" checked={draft.role === item.id} onChange={() => patchDraft({ role: item.id, moduleIds: suggestModules(item.id, draft.minutes) })} /><span style={{ background: item.color }}><RoleIcon role={item.id} size={17} /></span>{item.shortLabel}</label>)}</div></fieldset>
 
           <fieldset className="studio-fieldset"><legend>Time budget</legend><div className="segmented-control">{([15, 30, 45, 60] as const).map((minutes) => <label className={draft.minutes === minutes ? 'selected' : ''} key={minutes}><input type="radio" name="minutes" checked={draft.minutes === minutes} onChange={() => patchDraft({ minutes, moduleIds: suggestModules(draft.role, minutes) })} />{minutes}m</label>)}</div></fieldset>
 
-          <fieldset className="studio-fieldset"><legend>Delivery format</legend><div className="format-options">{formats.map((format) => <label className={draft.format === format.id ? 'selected' : ''} key={format.id}><input type="radio" name="format" checked={draft.format === format.id} onChange={() => patchDraft({ format: format.id })} /><span><strong>{format.label}</strong><small>{format.description}</small></span>{draft.format === format.id && <Check size={17} />}</label>)}</div></fieldset>
+          <fieldset className="studio-fieldset"><legend>Format</legend><div className="format-options">{formats.map((format) => <label className={draft.format === format.id ? 'selected' : ''} key={format.id}><input type="radio" name="format" checked={draft.format === format.id} onChange={() => patchDraft({ format: format.id })} /><span><strong>{format.label}</strong><small>{format.description}</small></span>{draft.format === format.id && <Check size={17} />}</label>)}</div></fieldset>
 
-          <div className="studio-suggest"><button className="button button--paper" type="button" onClick={handleSuggest}><Sparkles size={16} /> Rebuild recommendation</button><span>Uses role priorities and your time cap.</span></div>
+          <div className="studio-suggest"><button className="button button--paper" type="button" onClick={handleSuggest}><Sparkles size={16} /> Suggest lessons again</button><span>Uses your chosen audience and time limit.</span></div>
         </aside>
 
         <section className="studio-preview" aria-label="Learning kit preview">
-          <div className="studio-preview__top"><div><span>LIVE KIT PREVIEW</span><strong>{selectedModules.length} modules · {totalMinutes} minutes</strong></div><div><button type="button" onClick={copyGuide}><Clipboard size={16} /> {copied ? 'Copied' : 'Copy guide'}</button><button type="button" onClick={exportJson}><FileJson size={16} /> JSON</button><button type="button" onClick={exportMarkdown}><Download size={16} /> Markdown</button></div></div>
+          <div className="studio-preview__top"><div><span>KIT PREVIEW</span><strong>{selectedModules.length} lessons · {totalMinutes} minutes</strong></div><div><button type="button" onClick={copyGuide}><Clipboard size={16} /> {copied ? 'Copied' : 'Copy guide'}</button><button type="button" onClick={exportJson}><FileJson size={16} /> Data file</button><button type="button" onClick={exportMarkdown}><Download size={16} /> Text guide</button></div></div>
 
           <section className="kit-cover" style={{ '--role-color': role.color } as React.CSSProperties}>
             <span className="kit-cover__role"><RoleIcon role={role.id} /> {role.label}</span>
@@ -130,7 +130,7 @@ export function StudioPage() {
           </section>
 
           <section className="module-picker">
-            <div className="module-picker__heading"><div><span>RUN OF SHOW</span><h2>Choose the modules</h2></div><p>{totalMinutes > draft.minutes ? `${totalMinutes - draft.minutes} minutes over your target` : `${draft.minutes - totalMinutes} minutes available`}</p></div>
+            <div className="module-picker__heading"><div><span>SESSION PLAN</span><h2>Choose the lessons</h2></div><p>{totalMinutes > draft.minutes ? `${totalMinutes - draft.minutes} minutes over your target` : `${draft.minutes - totalMinutes} minutes available`}</p></div>
             <div className="module-picker__list">
               {modules.map((module) => {
                 const selected = draft.moduleIds.includes(module.id)
@@ -140,7 +140,7 @@ export function StudioPage() {
             </div>
           </section>
 
-          <section className="kit-export-note"><div><strong>Ready to hand off.</strong><span>Exports include learning outcomes, mental models, role examples, facilitation notes, and license information.</span></div><button className="button button--ink" type="button" disabled={!selectedModules.length} onClick={exportMarkdown}>Export facilitator guide <ArrowRight size={17} /></button></section>
+          <section className="kit-export-note"><div><strong>Ready to share.</strong><span>The guide includes goals, key ideas, examples, teaching notes, and license details.</span></div><button className="button button--ink" type="button" disabled={!selectedModules.length} onClick={exportMarkdown}>Save teaching guide <ArrowRight size={17} /></button></section>
         </section>
       </div>
     </div>

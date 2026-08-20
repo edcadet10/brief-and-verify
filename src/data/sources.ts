@@ -8,7 +8,7 @@ export const researchSources: ResearchSource[] = [
     year: 2026,
     url: 'https://www.dol.gov/agencies/eta/advisories/ten-07-25',
     usedFor:
-      'Five foundational content areas and delivery principles emphasizing experiential, contextual, role-adaptable learning.',
+      'Five core topics and teaching guidance built around practice, real situations, and different kinds of work.',
   },
   {
     id: 'oecd-2026',
@@ -17,7 +17,7 @@ export const researchSources: ResearchSource[] = [
     year: 2026,
     url: 'https://doi.org/10.1787/65cd27d4-en',
     usedFor:
-      'A competency view of AI literacy spanning understanding, critical evaluation, ethical use, creativity, and informed decisions.',
+      'Skills for understanding and questioning AI, using it safely and creatively, and making informed choices.',
   },
   {
     id: 'nist-2024',
@@ -26,7 +26,7 @@ export const researchSources: ResearchSource[] = [
     year: 2024,
     url: 'https://doi.org/10.6028/NIST.AI.600-1',
     usedFor:
-      'Risk-proportionate review, information integrity, privacy, documentation, human oversight, and fallback planning.',
+      'Stronger checks for higher-risk work, trustworthy information, privacy, clear records, human review, and backup plans.',
   },
   {
     id: 'unesco-2024',
@@ -35,7 +35,7 @@ export const researchSources: ResearchSource[] = [
     year: 2024,
     url: 'https://unesdoc.unesco.org/ark:/48223/pf0000391105',
     usedFor:
-      'Human agency, ethical responsibility, safe use, problem scoping, and progressive competency development.',
+      'Keeping people in control, using AI safely and responsibly, defining problems, and building skills step by step.',
   },
   {
     id: 'adaptive-2024',
@@ -44,7 +44,7 @@ export const researchSources: ResearchSource[] = [
     year: 2024,
     url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC12413037/',
     usedFor:
-      'Conservative rule-based adaptation using difficulty, scaffolding, and remediation rather than opaque personalization claims.',
+      'Using simple rules to adjust difficulty, offer help, and give another try without making broad claims about personalization.',
   },
   {
     id: 'wcag-2024',
@@ -53,7 +53,7 @@ export const researchSources: ResearchSource[] = [
     year: 2024,
     url: 'https://www.w3.org/TR/WCAG22/',
     usedFor:
-      'Keyboard operation, visible focus, semantic structure, minimum target size, contrast, and reduced-motion support.',
+      'Keyboard use, visible focus, clear page structure, usable target sizes, color contrast, and reduced-motion support.',
   },
 ]
 

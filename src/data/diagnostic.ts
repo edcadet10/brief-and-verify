@@ -10,16 +10,16 @@ export const diagnosticQuestions: DiagnosticQuestion[] = [
     options: [
       {
         id: 'u-a',
-        label: 'The response is a plausible synthesis, not a measured fact; trace it back to the notes.',
+        label: 'The response is a possible summary, not a measured fact; trace it back to the notes.',
         rationale:
-          'Right. Language models produce likely continuations and summaries. A confident sentence is not evidence that a count was performed correctly.',
+          'Right. AI systems predict and summarize patterns. A confident sentence does not prove that the system counted correctly.',
         score: 2,
       },
       {
         id: 'u-b',
         label: 'The system probably found information hidden between the lines.',
         rationale:
-          'Inference can be useful, but it cannot turn ambiguous notes into a defensible count without an explicit method and review.',
+          'Reading between the lines can be useful, but unclear notes cannot support a count unless you use a clear method and check the work.',
         score: 0,
       },
       {
@@ -42,14 +42,14 @@ export const diagnosticQuestions: DiagnosticQuestion[] = [
         id: 'e-a',
         label: 'Let it approve straightforward cases and send only uncertain ones to staff.',
         rationale:
-          'That still delegates consequential decisions and may hide systematic errors among “straightforward” cases.',
+          'That still hands serious decisions to software and may hide repeated errors among cases that look simple.',
         score: 0,
       },
       {
         id: 'e-b',
         label: 'Use it to organize documents against a human-defined checklist, then require staff review.',
         rationale:
-          'Right. This narrows the task, preserves decision authority, and makes review criteria visible.',
+          'Right. This limits the task, keeps the decision with staff, and makes the checking rules clear.',
         score: 2,
       },
       {
@@ -72,7 +72,7 @@ export const diagnosticQuestions: DiagnosticQuestion[] = [
         id: 'b-a',
         label: '“Write a friendly schedule announcement.”',
         rationale:
-          'It gives tone, but leaves the facts, audience needs, constraints, and success criteria unstated.',
+          'It gives a tone, but leaves out the facts, audience needs, limits, and what a ready draft should include.',
         score: 0,
       },
       {
@@ -87,7 +87,7 @@ export const diagnosticQuestions: DiagnosticQuestion[] = [
         label:
           'Provide the approved facts, audience, reading level, mobile format, translation plan, and a rule not to invent missing details.',
         rationale:
-          'Right. A useful brief makes the job, evidence, constraints, and review standard explicit.',
+          'Right. A useful brief clearly states the job, evidence, limits, and how the result will be checked.',
         score: 2,
       },
     ],
@@ -96,19 +96,19 @@ export const diagnosticQuestions: DiagnosticQuestion[] = [
     id: 'd-verify',
     competency: 'verify',
     context:
-      'A draft vendor memo includes a precise statistic that would materially strengthen your recommendation, but it provides no source.',
+      'A draft vendor memo includes an exact statistic that would greatly strengthen your recommendation, but it provides no source.',
     prompt: 'What should happen first?',
     options: [
       {
         id: 'v-a',
         label: 'Ask the same system whether the statistic is correct.',
         rationale:
-          'The same generation process may repeat or reinforce the unsupported claim. Verification needs independent evidence.',
+          'The same system may repeat the unsupported claim. Check it against a separate source.',
         score: 0,
       },
       {
         id: 'v-b',
-        label: 'Locate the original, current source and check that its population and definition match the memo.',
+        label: 'Find the original, current source and check that its group and meaning match the memo.',
         rationale:
           'Right. A citation is only useful when it exists, supports the exact claim, and fits the context.',
         score: 2,
@@ -133,21 +133,21 @@ export const diagnosticQuestions: DiagnosticQuestion[] = [
         id: 'p-a',
         label: 'Paste the note, then delete the conversation afterward.',
         rationale:
-          'Deletion from your view may not undo collection or processing. Do not submit sensitive data without authorization.',
+          'Deleting the chat from your view may not stop the service from saving or using the information. Do not submit sensitive data without permission.',
         score: 0,
       },
       {
         id: 'p-b',
         label: 'Replace the name but leave dates, location, and unusual details.',
         rationale:
-          'Removing one direct identifier may not prevent re-identification.',
+          'Removing a name may not stop someone from identifying the person through the other details.',
         score: 1,
       },
       {
         id: 'p-c',
-        label: 'Use an approved environment or a fictionalized template with no identifiable details.',
+        label: 'Use an approved service or a fictional template with no details that could identify someone.',
         rationale:
-          'Right. Authorization and data minimization come before convenience.',
+          'Right. Get permission and share the least information needed, even when sharing more would be easier.',
         score: 2,
       },
     ],
@@ -161,23 +161,23 @@ export const diagnosticQuestions: DiagnosticQuestion[] = [
     options: [
       {
         id: 'j-a',
-        label: 'The person or team with the relevant authority, after documenting the review and unresolved limits.',
+        label: 'The person or team allowed to publish, after recording the review and anything that is still unclear.',
         rationale:
-          'Right. Assistance does not transfer accountability. The authorized human owns the decision and escalation path.',
+          'Right. Help from software does not move responsibility. An authorized person owns the decision and knows who handles serious problems.',
         score: 2,
       },
       {
         id: 'j-b',
-        label: 'The software provider, because its system produced the draft.',
+        label: 'The software company, because its system produced the draft.',
         rationale:
-          'Providers have responsibilities, but the deploying organization still owns its use and decision process.',
+          'The software company has responsibilities, but the organization using the system still owns its use and final decision.',
         score: 0,
       },
       {
         id: 'j-c',
         label: 'No one in particular if several people reviewed it.',
         rationale:
-          'Distributed review without a named decision owner creates an accountability gap.',
+          'Several reviewers do not replace one clearly named decision owner.',
         score: 0,
       },
     ],

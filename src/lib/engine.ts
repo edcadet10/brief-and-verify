@@ -19,12 +19,12 @@ export const competencyLabels: Record<CompetencyId, string> = {
 }
 
 export const competencyDescriptions: Record<CompetencyId, string> = {
-  understand: 'Recognize capabilities and limits',
-  explore: 'Match assistance to the task and stakes',
-  brief: 'Define the job, evidence, and boundaries',
-  verify: 'Test consequential claims and omissions',
-  protect: 'Respect privacy, consent, and agency',
-  decide: 'Retain authority, records, and fallbacks',
+  understand: 'Know what AI can and cannot do',
+  explore: 'Match AI help to the task and possible harm',
+  brief: 'Define the job, sources, and limits',
+  verify: 'Check important claims and missing points',
+  protect: 'Protect privacy, get permission, and keep people in control',
+  decide: 'Keep the final decision human and make a backup plan',
 }
 
 export const emptyMastery = (): Record<CompetencyId, number> => ({
@@ -52,7 +52,7 @@ export const createInitialState = (): LearnerState => ({
   savedResources: [],
   events: [],
   studioDraft: {
-    title: 'Practical AI judgment starter',
+    title: 'Better AI decisions starter',
     goal: 'Help learners make one safer, more useful decision with AI this week.',
     role: 'general',
     minutes: 30,

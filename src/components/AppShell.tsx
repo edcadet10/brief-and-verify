@@ -19,8 +19,8 @@ const navItems = [
   { to: '/path', label: 'My path', icon: BookOpen },
   { to: '/practice', label: 'Practice', icon: FlaskConical },
   { to: '/library', label: 'Library', icon: Library },
-  { to: '/studio', label: 'Studio', icon: Blocks },
-  { to: '/impact', label: 'Impact', icon: BarChart3 },
+  { to: '/studio', label: 'Build a lesson', icon: Blocks },
+  { to: '/impact', label: 'Progress', icon: BarChart3 },
 ]
 
 export function AppShell() {
@@ -88,7 +88,7 @@ export function AppShell() {
       <footer className="app-footer">
         <div>
           <Brand />
-          <p>Free, model-neutral practice for practical AI judgment.</p>
+          <p>Free practice for making better decisions with any AI system.</p>
         </div>
         <div className="app-footer__links">
           <NavLink to="/about">Method &amp; sources</NavLink>
