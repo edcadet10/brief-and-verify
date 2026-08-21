@@ -25,7 +25,7 @@
 
 ![Brief & Verify landing page showing a practical claim-verification exercise](docs/preview.png)
 
-Brief & Verify is an openly licensed learning project for everyday users, care and health-service teams, educators, small-business owners, public servants, and community leaders. It works with any AI system. It is a reusable teaching kit, not a product tutorial or a certification.
+Brief & Verify is an openly licensed learning project and reusable teaching kit for everyday users, care and health-service teams, educators, small-business owners, public servants, and community leaders. It works with any AI system; it is not a product tutorial or a certification.
 
 | Explore the project | Build with the project |
 | --- | --- |
