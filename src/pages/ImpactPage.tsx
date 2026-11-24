@@ -76,7 +76,15 @@ export function ImpactPage() {
   }
 
   const resetProgress = () => {
-    if (window.confirm('Reset all locally saved progress? Export first if you may want it later.')) reset()
+    if (!window.confirm('Reset all locally saved progress? Export first if you may want it later.')) return
+    reset()
+    setTask('')
+    setSafeguard('')
+    setSuccessSignal('')
+    setReviewOn(inSevenDays())
+    setReflection('')
+    setResult('helped')
+    setImportMessage('')
   }
 
   return (

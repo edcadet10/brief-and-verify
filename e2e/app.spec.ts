@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import { readFile } from 'node:fs/promises'
 import axe from 'axe-core'
 import { diagnosticQuestions } from '../src/data/diagnostic'
 import { scenarios } from '../src/data/scenarios'
@@ -107,6 +108,31 @@ test('the deterministic scenario reaches the authored 100-point debrief', async 
       return value ? JSON.parse(value).scenarioAttempts.length as number : 0
     }))
     .toBe(1)
+})
+
+test('a learner can restore a saved field test from their progress file', async ({ page }, testInfo) => {
+  const task = 'Prepare a fictional workshop agenda'
+  await page.goto('./#/impact')
+  await page.getByLabel('Small, low-risk task').fill(task)
+  await page.getByLabel('Safety rule you will keep').fill('Use fictional participants.')
+  await page.getByLabel('What success will look like').fill('The sample agenda has one owner.')
+  await page.getByRole('button', { name: 'Start field test' }).click()
+  await expect(page.getByText(task, { exact: true })).toBeVisible()
+
+  const downloading = page.waitForEvent('download')
+  await page.getByRole('button', { name: 'Save progress file' }).click()
+  const download = await downloading
+  const file = testInfo.outputPath('progress.json')
+  await download.saveAs(file)
+  expect(JSON.parse(await readFile(file, 'utf8')).fieldExperiment.task).toBe(task)
+
+  page.once('dialog', (dialog) => dialog.accept())
+  await page.getByRole('button', { name: 'Reset', exact: true }).click()
+  await expect(page.getByLabel('Small, low-risk task')).toHaveValue('')
+  await expect(page.getByText(task, { exact: true })).toHaveCount(0)
+  await page.getByLabel('Restore progress').setInputFiles(file)
+  await expect(page.getByRole('status')).toHaveText('Progress restored.')
+  await expect(page.getByText(task, { exact: true })).toBeVisible()
 })
 
 test('critical routes render one main landmark without horizontal overflow', async ({ page }) => {
